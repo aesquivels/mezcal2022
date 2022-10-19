@@ -1,0 +1,21 @@
+enter:->
+{
+	//Variable definitions
+	logical flag;
+	number n;
+	number m;
+
+	set n 10;
+	set m 20;
+	set flag true;
+
+	inc n;
+	dec m;
+	puts "LogicalValue";
+	puts $flag;
+	puts "ValueOfn";
+	puts $n;
+	puts "ValueOfm";
+	puts $m;
+	//puts "Hola";
+}
