@@ -7,12 +7,12 @@ enter:->
 
 	set n 10;
 	set m 20;
-	set flag true;
+	set flag false;
 
 	inc n;
 	dec m;
 	puts "LogicalValue";
-	puts $flag;
+	puts ntol $flag;
 	puts "ValueOfn";
 	puts $n;
 	puts "ValueOfm";

@@ -26,6 +26,7 @@ dot .
 {digit}+	{ return INTEGER_VALUE; }
 "true"		{ return TRUE; }
 "false"		{ return FALSE; }
+"ntol"		{ return NTOL; }
 {name}	{
 		return NAME; 
 	}

@@ -20,7 +20,7 @@
 %token NAME COLON SEMICOLON RIGHT_ARROW LEFT_CURLY_BRACE RIGHT_CURLY_BRACE
 	LEFT_PARENTHESIS RIGHT_PARENTHESIS SINGLECOMMENT MULTILINECOMMENTS
 	PUTS QUOTES NUMBER SET INTEGER_VALUE DOLLAR_SIGN INC DEC LOGICAL TRUE 
-	FALSE
+	FALSE NTOL
 
 %start input
 
@@ -110,6 +110,10 @@ ids:
 	;
 
 std_output:
+	PUTS NTOL DOLLAR_SIGN name {
+$$ = "cout << ((" + $4 + "==1) ? \"true\" : \"false\") << endl;";
+	}
+	|
 	PUTS DOLLAR_SIGN name { $$ = "cout << " + $3 + " << endl;"; }
 	|
 	PUTS quotes characters_block quotes	

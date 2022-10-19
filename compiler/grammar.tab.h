@@ -80,7 +80,8 @@ extern int yydebug;
     DEC = 275,                     /* DEC  */
     LOGICAL = 276,                 /* LOGICAL  */
     TRUE = 277,                    /* TRUE  */
-    FALSE = 278                    /* FALSE  */
+    FALSE = 278,                   /* FALSE  */
+    NTOL = 279                     /* NTOL  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif
