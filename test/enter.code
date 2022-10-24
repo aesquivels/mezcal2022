@@ -1,9 +1,18 @@
 enter:->
 {
+	number anios;
+	puts "Please, enter your age: ";
+	gets stdin anios;
+	inc anios;
+	puts "Next year you have: ";
+	puts $anios;	
+
 	//Variable definitions
+	/*
 	logical flag;
 	number n;
 	number m;
+	number o;
 
 	set n 10;
 	set m 20;
@@ -11,11 +20,16 @@ enter:->
 
 	inc n;
 	dec m;
-	puts "LogicalValue";
+	puts "Logical Value: ";
 	puts ntol $flag;
-	puts "ValueOfn";
+	puts "Value Of n: ";
 	puts $n;
-	puts "ValueOfm";
+	puts "Value Of m: ";
 	puts $m;
-	//puts "Hola";
+	puts "Provide some value to O: ";
+	gets stdin o;
+	puts "Current o value: ";
+	puts $o;
+	*/
 }
+

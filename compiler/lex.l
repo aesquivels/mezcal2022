@@ -5,6 +5,7 @@
 digit [0-9]
 alpha [a-zA-Z]
 name {alpha}([0-9]*{alpha}*)+
+characters {quotes}({dot}*{whitespace}*)+{quotes}
 singlecomment {slash}{slash}({dot}*{whitespace}*)+{linefeed}
 multilinecomments {slash}{wildcard}({dot}*{whitespace}*{linefeed}*)+{wildcard}{slash}
 whitespace [ \r\t\v\f]
@@ -17,6 +18,9 @@ dot .
 %%
 
 {quotes}	{ return QUOTES; }
+{characters}    { return CHARACTERS; }
+"gets"		{ return GETS; }
+"stdin"		{ return STDIN; }
 "number"	{ return NUMBER; }
 "puts"		{ return PUTS; }
 "set"		{ return SET; }

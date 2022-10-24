@@ -81,7 +81,10 @@ extern int yydebug;
     LOGICAL = 276,                 /* LOGICAL  */
     TRUE = 277,                    /* TRUE  */
     FALSE = 278,                   /* FALSE  */
-    NTOL = 279                     /* NTOL  */
+    NTOL = 279,                    /* NTOL  */
+    CHARACTERS = 280,              /* CHARACTERS  */
+    GETS = 281,                    /* GETS  */
+    STDIN = 282                    /* STDIN  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

@@ -20,7 +20,7 @@
 %token NAME COLON SEMICOLON RIGHT_ARROW LEFT_CURLY_BRACE RIGHT_CURLY_BRACE
 	LEFT_PARENTHESIS RIGHT_PARENTHESIS SINGLECOMMENT MULTILINECOMMENTS
 	PUTS QUOTES NUMBER SET INTEGER_VALUE DOLLAR_SIGN INC DEC LOGICAL TRUE 
-	FALSE NTOL
+	FALSE NTOL CHARACTERS GETS STDIN
 
 %start input
 
@@ -62,6 +62,8 @@ statements:
 	;
 
 statement:
+	std_input SEMICOLON	{ $$ = $1; }
+	|
 	unitaryOperation SEMICOLON { $$ = $1; }
 	|
 	assignment SEMICOLON	{ $$ = $1; }
@@ -77,6 +79,10 @@ statement:
 	name SEMICOLON	{ $$ = "printf(\"%s \\n\", \"" + $1 + "\"); \n"; }
 	|
 	expression SEMICOLON	{ $$ = std::move($1); }
+	;
+
+std_input:
+	GETS STDIN name { $$ = "cin >> "  + $3 + ";\n"; }
 	;
 
 unitaryOperation:
@@ -116,16 +122,12 @@ $$ = "cout << ((" + $4 + "==1) ? \"true\" : \"false\") << endl;";
 	|
 	PUTS DOLLAR_SIGN name { $$ = "cout << " + $3 + " << endl;"; }
 	|
-	PUTS quotes characters_block quotes	
-	{ $$ = "printf(\"" + $3 + "\");"; }
+	PUTS characters	
+	{ $$ = "printf(" + $2 + ");"; }
 	;
 
-characters_block:
-	name	{ $$ = $1; }
-	;
-
-quotes:
-	QUOTES { $$ = std::string(yytext); }
+characters:
+	CHARACTERS	{ $$ = std::string(yytext); }
 	;
 
 expression:
