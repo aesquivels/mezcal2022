@@ -8,7 +8,7 @@ enter:->
 	gets stdin a;
 	puts "Give b value: ";
 	gets stdin b;
-	set result a/b;
+	set result a+b;
 	puts "Result: ";
 	puts $result;
 

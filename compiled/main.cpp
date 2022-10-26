@@ -2,8 +2,11 @@
  #include <iostream>
  using namespace std; 
 int main(int argc, char *argv[]){ 
-int anios;
-printf("Please, enter your age: ");cin >> anios;
-anios++;
-printf("Next year you have: ");cout << anios << endl;} 
+int a;
+int b;
+int result;
+printf("Give a value: ");cin >> a;
+printf("Give b value: ");cin >> b;
+result=a/b;
+printf("Result: ");cout << result << endl;} 
 

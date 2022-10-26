@@ -84,7 +84,11 @@ extern int yydebug;
     NTOL = 279,                    /* NTOL  */
     CHARACTERS = 280,              /* CHARACTERS  */
     GETS = 281,                    /* GETS  */
-    STDIN = 282                    /* STDIN  */
+    STDIN = 282,                   /* STDIN  */
+    PLUS = 283,                    /* PLUS  */
+    MINUS = 284,                   /* MINUS  */
+    MUL = 285,                     /* MUL  */
+    DIV = 286                      /* DIV  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

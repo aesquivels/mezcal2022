@@ -64,6 +64,18 @@ dot .
 "$"	{
 		return DOLLAR_SIGN;
 	}
+"+"	{
+		return PLUS;
+	}
+"-"	{
+		return MINUS;
+	}
+"*"	{
+		return MUL;
+	}
+"/"	{
+		return DIV;
+	}
 {whitespace}	
 {linefeed}	++yylineno;
 

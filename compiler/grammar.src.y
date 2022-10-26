@@ -20,7 +20,7 @@
 %token NAME COLON SEMICOLON RIGHT_ARROW LEFT_CURLY_BRACE RIGHT_CURLY_BRACE
 	LEFT_PARENTHESIS RIGHT_PARENTHESIS SINGLECOMMENT MULTILINECOMMENTS
 	PUTS QUOTES NUMBER SET INTEGER_VALUE DOLLAR_SIGN INC DEC LOGICAL TRUE 
-	FALSE NTOL CHARACTERS GETS STDIN PLUS MINUS MUL DIV
+	FALSE NTOL CHARACTERS GETS STDIN PLUS
 
 %start input
 
@@ -92,8 +92,8 @@ unitaryOperation:
 	;
 
 assignment:
-	SET name mathOperation	{ 
-		$$ = $2 + "=" + $3 + ";\n"; 
+	SET name name PLUS name	{ 
+		$$ = $2 + "=" + $3 + "+" + $5 + ";\n"; 
 	}
 	|
 	SET name TRUE	{ $$ = $2 + "=true;\n"; }
@@ -101,16 +101,6 @@ assignment:
 	SET name FALSE  { $$ = $2 + "=false;\n"; }
 	|
 	SET name integer_value	{ $$ = $2 + "=" + $3 + ";\n"; }
-	;
-
-mathOperation:
-	name PLUS name	{ $$ = std::string($1 + "+" + $3); }
-	|
-	name MINUS name { $$ = std::string($1 + "-" + $3); }
-	|
-	name MUL name { $$ = std::string($1 + "*" + $3); }
-	|
-	name DIV name { $$ = std::string($1 + "/" + $3); }
 	;
 
 definition:
