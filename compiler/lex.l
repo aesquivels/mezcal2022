@@ -31,6 +31,12 @@ dot .
 "true"		{ return TRUE; }
 "false"		{ return FALSE; }
 "ntol"		{ return NTOL; }
+"eq"		{ return EQ; } 
+"gt"		{ return GT; } 
+"le"		{ return LE; } 
+"ge"		{ return GE; }
+"lt"		{ return LT; }
+"ne"		{ return NE; } 
 {name}	{
 		return NAME; 
 	}
@@ -60,6 +66,18 @@ dot .
 	}
 ")"	{
 		return RIGHT_PARENTHESIS;
+	}
+"["	{
+		return LEFT_BRACKET;
+	}
+"]"	{
+		return RIGHT_BRACKET;
+	}
+"?"	{
+		return QUESTION_MARK;
+	}
+"!"	{
+		return EXCLAMATION_MARK;
 	}
 "$"	{
 		return DOLLAR_SIGN;

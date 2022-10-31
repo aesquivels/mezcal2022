@@ -12,6 +12,7 @@ enter:->
 	puts "Result: ";
 	puts $result;
 
+	[ $a eq $b ] ? inc a; ! puts "Mayor b";
 
 	/*
 	number anios;

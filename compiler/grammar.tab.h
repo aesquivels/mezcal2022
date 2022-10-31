@@ -88,7 +88,17 @@ extern int yydebug;
     PLUS = 283,                    /* PLUS  */
     MINUS = 284,                   /* MINUS  */
     MUL = 285,                     /* MUL  */
-    DIV = 286                      /* DIV  */
+    DIV = 286,                     /* DIV  */
+    EQ = 287,                      /* EQ  */
+    GT = 288,                      /* GT  */
+    LE = 289,                      /* LE  */
+    GE = 290,                      /* GE  */
+    LT = 291,                      /* LT  */
+    NE = 292,                      /* NE  */
+    LEFT_BRACKET = 293,            /* LEFT_BRACKET  */
+    RIGHT_BRACKET = 294,           /* RIGHT_BRACKET  */
+    QUESTION_MARK = 295,           /* QUESTION_MARK  */
+    EXCLAMATION_MARK = 296         /* EXCLAMATION_MARK  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

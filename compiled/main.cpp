@@ -8,5 +8,7 @@ int result;
 printf("Give a value: ");cin >> a;
 printf("Give b value: ");cin >> b;
 result=a/b;
-printf("Result: ");cout << result << endl;} 
+printf("Result: ");cout << result << endl;if (a==b){a++;
+} else {printf("Mayor b");}
+} 
 

@@ -20,8 +20,8 @@
 %token NAME COLON SEMICOLON RIGHT_ARROW LEFT_CURLY_BRACE RIGHT_CURLY_BRACE
 	LEFT_PARENTHESIS RIGHT_PARENTHESIS SINGLECOMMENT MULTILINECOMMENTS
 	PUTS QUOTES NUMBER SET INTEGER_VALUE DOLLAR_SIGN INC DEC LOGICAL TRUE 
-	FALSE NTOL CHARACTERS GETS STDIN PLUS MINUS MUL DIV
-
+	FALSE NTOL CHARACTERS GETS STDIN PLUS MINUS MUL DIV EQ GT LE GE LT NE
+	LEFT_BRACKET RIGHT_BRACKET QUESTION_MARK EXCLAMATION_MARK
 %start input
 
 %%
@@ -62,6 +62,10 @@ statements:
 	;
 
 statement:
+	tertiaryOperator	{ $$ = $1; }
+	|
+	logicalComparation SEMICOLON  { $$ =  $1; }
+	|
 	std_input SEMICOLON	{ $$ = $1; }
 	|
 	unitaryOperation SEMICOLON { $$ = $1; }
@@ -79,6 +83,18 @@ statement:
 	name SEMICOLON	{ $$ = "printf(\"%s \\n\", \"" + $1 + "\"); \n"; }
 	|
 	expression SEMICOLON	{ $$ = std::move($1); }
+        ;
+
+tertiaryOperator:
+LEFT_BRACKET logicalComparation RIGHT_BRACKET QUESTION_MARK 
+statement EXCLAMATION_MARK statement {
+		//$$ = "cout << \"now working\";";
+		$$ = "if (" + $2 + "){" + $5 + "} else {" + $7 + "}\n";
+}
+	;
+
+logicalComparation:
+	DOLLAR_SIGN name EQ DOLLAR_SIGN name { $$ = $2 + "==" + $5; }
 	;
 
 std_input:
