@@ -1,0 +1,51 @@
+enter:->
+{
+	number a;
+	number b;
+	number result;
+
+	puts "Give";
+	/*
+	gets stdin a;
+	puts "Give b value: ";
+	gets stdin b;
+	set result a/b;
+	puts "Result: ";
+	puts $result;
+
+	[ $a eq $b ] ? inc a; ! inc b;
+	*/
+	/*
+	number anios;
+	puts "Please, enter your age: ";
+	gets stdin anios;
+	inc anios;
+	puts "Next year you have: ";
+	puts $anios;	
+	*/
+	//Variable definitions
+	/*
+	logical flag;
+	number n;
+	number m;
+	number o;
+
+	set n 10;
+	set m 20;
+	set flag false;
+
+	inc n;
+	dec m;
+	puts "Logical Value: ";
+	puts ntol $flag;
+	puts "Value Of n: ";
+	puts $n;
+	puts "Value Of m: ";
+	puts $m;
+	puts "Provide some value to O: ";
+	gets stdin o;
+	puts "Current o value: ";
+	puts $o;
+	*/
+}
+

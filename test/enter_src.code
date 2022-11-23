@@ -1,0 +1,14 @@
+enter:->{
+	puts "Hola mundo:";
+	/*
+	number a;
+	number b;
+
+	puts "Dame el valor de a: ";
+	gets stdin a;
+	puts "Dame el valor de b: ";
+	gets stdin b;
+		
+	[ $a eq $b ] ? puts "Son iguales"; ! puts "Son diferentes";	
+	*/
+}
