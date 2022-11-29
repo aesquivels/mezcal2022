@@ -17,7 +17,7 @@
 %define api.value.type {std::string}
 
 %token  ID COLON LEFT_BRACKET RIGHT_BRACKET RIGHT_ARROW LEFT_CURLY_BRACE 
-	RIGHT_CURLY_BRACE SINGLECOMMENT
+	RIGHT_CURLY_BRACE SINGLECOMMENT QUOTES SHOW CHARACTERS SEMICOLON
 
 %start input
 
@@ -38,7 +38,7 @@ function_list:
 function:
 	id COLON COLON LEFT_BRACKET RIGHT_BRACKET RIGHT_ARROW 
 LEFT_BRACKET RIGHT_BRACKET COLON LEFT_CURLY_BRACE statements RIGHT_CURLY_BRACE	{
-	$$ = std::string("int main(int argc, char *argv[]){") + $11 + "}";
+	$$ = std::string("int main(int argc, char *argv[]){ \n") + $11 + "} \n";
 	}
 	;
 
@@ -50,6 +50,16 @@ statements:
 
 statement:
 	SINGLECOMMENT	{ $$ = ""; }
+	|
+	std_output SEMICOLON	{ $$ = $1; }
+	;
+
+std_output:
+	SHOW COLON characters { $$ = "cout << " + $3 + " << endl;\n";} 
+	;
+
+characters:
+	CHARACTERS	{ $$ = std::string(yytext); }
 	;
 
 id:

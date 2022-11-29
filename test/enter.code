@@ -2,4 +2,5 @@ main::[]->[]:
 {
 	// statement
 	//statement
+	show: "Hello world";
 }
