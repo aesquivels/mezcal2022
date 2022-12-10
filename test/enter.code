@@ -1,6 +1,8 @@
 main::[]->[]:
-{
-	// statement
-	//statement
-	show: "Hello world";
+{	
+	a: Int;
+	a: 10;
+	[2 > 1]?{
+		show: "entro a show";
+	}
 }

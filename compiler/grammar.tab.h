@@ -71,7 +71,14 @@ extern int yydebug;
     QUOTES = 266,                  /* QUOTES  */
     SHOW = 267,                    /* SHOW  */
     CHARACTERS = 268,              /* CHARACTERS  */
-    SEMICOLON = 269                /* SEMICOLON  */
+    SEMICOLON = 269,               /* SEMICOLON  */
+    MULTILINECOMMENT = 270,        /* MULTILINECOMMENT  */
+    INT = 271,                     /* INT  */
+    LOAD = 272,                    /* LOAD  */
+    INTEGER_VALUE = 273,           /* INTEGER_VALUE  */
+    GREATHER_THAN = 274,           /* GREATHER_THAN  */
+    LESS_THAN = 275,               /* LESS_THAN  */
+    QUESTION_MARK = 276            /* QUESTION_MARK  */
   };
   typedef enum yytokentype yytoken_kind_t;
 #endif

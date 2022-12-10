@@ -18,6 +18,8 @@
 
 %token  ID COLON LEFT_BRACKET RIGHT_BRACKET RIGHT_ARROW LEFT_CURLY_BRACE 
 	RIGHT_CURLY_BRACE SINGLECOMMENT QUOTES SHOW CHARACTERS SEMICOLON
+	MULTILINECOMMENT INT LOAD INTEGER_VALUE GREATHER_THAN LESS_THAN
+	QUESTION_MARK
 
 %start input
 
@@ -49,9 +51,54 @@ statements:
 	;
 
 statement:
+	bifurcation { $$ = $1; }
+	|
+	assignment SEMICOLON	{ $$ = $1; }
+	|
+	std_input SEMICOLON	{ $$ = $1; }
+	|
+	definition SEMICOLON	{ $$ = $1; }
+	|
 	SINGLECOMMENT	{ $$ = ""; }
 	|
+	MULTILINECOMMENT	{ $$=""; }
+	|
 	std_output SEMICOLON	{ $$ = $1; }
+	;
+
+bifurcation:
+LEFT_BRACKET logicalComparison RIGHT_BRACKET QUESTION_MARK LEFT_CURLY_BRACE statements RIGHT_CURLY_BRACE { 
+	$$ = "if(" + $2 + "){" + $6 + "}"; 
+}
+;
+
+logicalComparison:
+	integer_value GREATHER_THAN integer_value { $$ = $1 + ">" + $3; }
+	;
+
+assignment:
+	identifiers COLON integer_value { $$ = $1 + "=" + $3 + ";"; }
+	;
+
+integer_value:
+	INTEGER_VALUE	{ $$= std::string(yytext); }
+	;
+std_input:
+	LOAD COLON identifiers	{ $$ = "cin >> " + $3 + "; \n";}
+	;
+
+definition:
+	identifiers COLON INT	{ $$ ="int " + $1 + "; \n"; }
+	;
+
+identifiers:
+	identifiers ids	{ $$ = $1 + $2; }
+	|
+	%empty	{ $$ = ""; }
+	;
+
+ids:
+	id	{ $$ = $1; }
 	;
 
 std_output:
